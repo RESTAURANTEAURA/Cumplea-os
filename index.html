@@ -17,14 +17,15 @@
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
+/* FONDO BLANCO */
 body{
-  background:radial-gradient(circle at top,#1a1a1a,#000);
+  background:#ffffff;
   font-family:'Poppins',sans-serif;
   color:var(--white);
   overflow-x:hidden;
 }
 
-/* FONDO */
+/* FONDO ANIMADO */
 .background{
   position:fixed;
   inset:0;
@@ -41,14 +42,14 @@ body{
 .float.heart{
   font-size:24px;
   color:rgba(255,255,255,.7);
-  filter:drop-shadow(0 0 6px rgba(255,255,255,.35));
+  filter:drop-shadow(0 0 6px rgba(255,255,255,.5));
 }
 
-/* MARIPOSAS */
+/* MARIPOSAS CELESTE PASTEL */
 .float.butterfly{
   font-size:26px;
   color:var(--butterfly);
-  filter:drop-shadow(0 0 10px rgba(207,233,255,.8));
+  filter:drop-shadow(0 0 10px rgba(207,233,255,.9));
 }
 
 @keyframes floatUp{
@@ -61,19 +62,20 @@ body{
   display:flex;
   justify-content:center;
   padding:3rem 1rem;
+  position:relative;
+  z-index:1;
 }
 
-/* CARD */
+/* TARJETA NEGRA */
 .card{
   position:relative;
   z-index:1;
   max-width:460px;
   width:100%;
   padding:3rem 2.2rem;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.2);
+  background:#0b0b0b;
+  border:1px solid rgba(255,255,255,.25);
   border-radius:32px;
-  backdrop-filter:blur(18px);
   box-shadow:0 40px 90px rgba(0,0,0,.9);
   text-align:center;
 }
@@ -244,7 +246,6 @@ body{
   </div>
 
   <div class="section">
-    Todos:<br>
     <div class="gift-icons">
       <i class="fa-solid fa-gift"></i>
       <i class="fa-solid fa-gift"></i>
@@ -281,6 +282,7 @@ body{
 /* FONDO */
 const bg=document.getElementById("bg");
 
+/* CORAZONES */
 for(let i=0;i<22;i++){
   const h=document.createElement("div");
   h.className="float heart";
@@ -290,6 +292,7 @@ for(let i=0;i<22;i++){
   bg.appendChild(h);
 }
 
+/* MARIPOSAS */
 for(let i=0;i<6;i++){
   const b=document.createElement("i");
   b.className="fa-solid fa-butterfly float butterfly";
@@ -298,6 +301,7 @@ for(let i=0;i<6;i++){
   bg.appendChild(b);
 }
 
+/* SCROLL */
 window.addEventListener("scroll",()=>{
   const y=window.scrollY;
   document.querySelectorAll(".float").forEach(el=>{
@@ -311,7 +315,6 @@ const targetDate = new Date("2026-01-31T20:00:00-05:00");
 function updateCountdown(){
   const now=new Date();
   const diff=targetDate-now;
-
   if(diff<=0) return;
 
   const d=Math.floor(diff/(1000*60*60*24));
