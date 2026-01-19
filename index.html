@@ -1,293 +1,333 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación de Cumpleaños</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- ESTILOS GENERALES --- */
-        :root {
-            --primary-color: #ff6b81;    /* Rosa fuerte */
-            --secondary-color: #ff9a9e;  /* Rosa suave */
-            --accent-color: #fccb90;     /* Durazno/Dorado */
-            --gold-color: #FFD700;       /* Dorado brillante */
-            --text-color: #5a3a3a;       /* Texto marrón suave */
-            --card-bg: rgba(255, 255, 255, 0.96);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación Black & White | Lizeth</title>
 
-        body {
-            margin: 0;
-            padding: 15px;
-            font-family: 'Poppins', sans-serif;
-            /* Fondo festivo */
-            background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-            overflow-x: hidden; /* Evitar scroll horizontal por animaciones */
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        /* --- TARJETA PRINCIPAL --- */
-        .card {
-            background: var(--card-bg);
-            padding: 40px 25px;
-            border-radius: 30px;
-            text-align: center;
-            max-width: 450px;
-            width: 100%;
-            position: relative;
-            z-index: 10;
-            border: 3px solid #fff;
-            /* Sombra más pronunciada para efecto 3D */
-            box-shadow: 0 25px 50px -12px rgba(255, 107, 129, 0.35);
-            backdrop-filter: blur(5px);
-        }
+<style>
+:root{
+  --white:#ffffff;
+  --soft:#dcdcdc;
+  --butterfly:#cfe9ff;
+}
 
-        /* --- NUEVO EFECTO: TÍTULO BRILLANTE --- */
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.8rem;
-            margin: 0;
-            /* Truco para el texto brillante */
-            background: linear-gradient(to right, var(--primary-color) 20%, #fff 50%, var(--gold-color) 80%);
-            background-size: 200% auto;
-            color: var(--primary-color); /* Fallback */
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shineText 3s linear infinite;
-            display: inline-block;
-        }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        @keyframes shineText {
-            to { background-position: 200% center; }
-        }
+body{
+  background:radial-gradient(circle at top,#1a1a1a,#000);
+  font-family:'Poppins',sans-serif;
+  color:var(--white);
+  overflow-x:hidden;
+}
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-bottom: 25px;
-            font-weight: 500;
-        }
+/* FONDO */
+.background{
+  position:fixed;
+  inset:0;
+  z-index:5;
+  pointer-events:none;
+}
 
-        /* --- FOTO CON EFECTO PALPITANTE --- */
-        .photo-container {
-            position: relative;
-            width: 170px;
-            height: 170px;
-            margin: 0 auto 25px;
-        }
+.float{
+  position:absolute;
+  animation:floatUp linear infinite;
+}
 
-        .photo-frame {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid #fff;
-            /* Animación de pulso en la sombra */
-            animation: pulse-border 2s infinite;
-            position: relative;
-            z-index: 2;
-        }
+/* CORAZONES */
+.float.heart{
+  font-size:24px;
+  color:rgba(255,255,255,.7);
+  filter:drop-shadow(0 0 6px rgba(255,255,255,.35));
+}
 
-        @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 rgba(255, 107, 129, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 107, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 107, 129, 0); }
-        }
+/* MARIPOSAS */
+.float.butterfly{
+  font-size:26px;
+  color:var(--butterfly);
+  filter:drop-shadow(0 0 10px rgba(207,233,255,.8));
+}
 
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* --- DETALLES --- */
-        .ornament-divider {
-            font-size: 1.3rem; color: var(--accent-color); margin: 15px 0; opacity: 0.8;
-        }
+@keyframes floatUp{
+  from{transform:translateY(110vh);}
+  to{transform:translateY(-10vh);}
+}
 
-        .details {
-            margin: 20px 0;
-            text-align: left;
-            background: rgba(255, 240, 245, 0.7);
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px dashed var(--secondary-color);
-        }
+/* CONTENEDOR */
+.wrapper{
+  display:flex;
+  justify-content:center;
+  padding:3rem 1rem;
+}
 
-        .details p {
-            margin: 10px 0; color: var(--text-color); font-size: 1.05rem; display: flex; align-items: center;
-        }
-        .details-icon { font-size: 1.4rem; margin-right: 12px; }
+/* CARD */
+.card{
+  position:relative;
+  z-index:1;
+  max-width:460px;
+  width:100%;
+  padding:3rem 2.2rem;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:32px;
+  backdrop-filter:blur(18px);
+  box-shadow:0 40px 90px rgba(0,0,0,.9);
+  text-align:center;
+}
 
-        /* --- CUENTA REGRESIVA MEJORADA --- */
-        .timer { 
-            display: flex; 
-            justify-content: center; 
-            gap: 8px; /* Espacio entre cuadritos reducido */
-            margin-bottom: 25px; 
-        }
+/* TEXTOS */
+.subtitle{
+  font-size:.75rem;
+  letter-spacing:6px;
+  color:var(--soft);
+}
 
-        .time-box {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            /* AQUÍ ESTÁ EL CAMBIO DE TAMAÑO */
-            padding: 5px;       /* Menos espacio interno */
-            border-radius: 8px; /* Bordes un poco menos redondos */
-            min-width: 45px;    /* Ancho mínimo más pequeño (antes era 60px) */
-            box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Destello en las cajas del reloj */
-        .time-box::after {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: rgba(255,255,255,0.2); transform: rotate(30deg);
-            animation: shineBox 4s infinite;
-        }
-        @keyframes shineBox { 0%{transform:translateX(-100%) rotate(30deg)} 100%{transform:translateX(100%) rotate(30deg)} }
+.name{
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;
+}
 
-        .time-box span { 
-            display: block; 
-            font-weight: bold; 
-            font-size: 1.1rem; /* Número más pequeño (antes 1.5rem) */
-            font-family: 'Dancing Script', cursive; 
-            position: relative; 
-            z-index: 2; 
-        }
+.theme{
+  letter-spacing:4px;
+  font-size:.85rem;
+}
 
-        .time-box small { 
-            font-size: 0.55rem; /* Texto "Días" más pequeño (antes 0.7rem) */
-            text-transform: uppercase; 
-            position: relative; 
-            z-index: 2; 
-        }
+.divider{
+  width:70px;
+  height:2px;
+  background:var(--white);
+  margin:1.6rem auto;
+}
 
-        /* --- BOTÓN --- */
-        .btn {
-            background: linear-gradient(45deg, var(--primary-color), #FFD700);
-            color: white; border: none; padding: 15px 30px; font-size: 1.1rem; font-weight: bold; border-radius: 50px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; display: inline-block;
-            box-shadow: 0 10px 20px -10px rgba(255, 215, 0, 0.6);
-        }
-        .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 30px -10px rgba(255, 107, 129, 0.8); }
+.text{
+  font-size:.95rem;
+  line-height:1.7;
+  margin-bottom:1.8rem;
+}
 
-        /* --- CAPAS DE ANIMACIÓN DE FONDO --- */
-        /* Capa 1: Elementos flotando hacia ARRIBA */
-        .floating-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .floater { position: absolute; font-size: 1.5rem; opacity: 0.5; animation: floatUp 15s infinite linear; }
-        @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 20% { opacity: 0.7; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+/* CUENTA REGRESIVA */
+.countdown{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:1.8rem;
+}
 
-        /* Capa 2: Confeti cayendo hacia ABAJO */
-        .falling-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
-        .confetti { position: absolute; width: 8px; height: 15px; opacity: 0.8; animation: fallDown 8s infinite linear; }
-        @keyframes fallDown { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg); opacity: 0.3; } }
+.time-box{
+  flex:1;
+  padding:.9rem .4rem;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.06);
+}
 
-    </style>
+.time-box span{
+  display:block;
+  font-size:1.4rem;
+  font-weight:500;
+}
+
+.time-box small{
+  font-size:.6rem;
+  letter-spacing:2px;
+  color:var(--soft);
+}
+
+/* SECCIONES */
+.section{
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:18px;
+  padding:1.2rem;
+  margin-bottom:1.4rem;
+  font-size:.9rem;
+}
+
+/* REGALO */
+.gift-icons{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  font-size:28px;
+}
+
+/* SPOTIFY */
+.spotify a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.6rem;
+  padding:.9rem 1.8rem;
+  border-radius:50px;
+  border:1px solid rgba(255,255,255,.3);
+  color:white;
+  text-decoration:none;
+  font-size:.75rem;
+  letter-spacing:2px;
+  background:rgba(255,255,255,.08);
+}
+
+/* MAPA */
+.map{
+  width:100%;
+  height:230px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.25);
+  margin-bottom:1rem;
+}
+
+.map iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  filter:grayscale(100%) contrast(1.15);
+}
+
+/* BOTONES */
+.btn{
+  display:inline-block;
+  margin:.4rem;
+  padding:.9rem 2.2rem;
+  border-radius:50px;
+  border:1px solid var(--white);
+  color:var(--white);
+  text-decoration:none;
+  font-size:.7rem;
+  letter-spacing:2px;
+}
+
+.footer{
+  margin-top:2rem;
+  font-size:.7rem;
+  letter-spacing:3px;
+  color:#aaa;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="floating-layer" id="floatingContainer"></div>
-    <div class="falling-layer" id="fallingContainer"></div>
+<div class="background" id="bg"></div>
 
-    <div class="card">
-        <h1>¡Feliz Cumpleaños!</h1>
-        <h1>Lizeth</h1>
-        <p class="subtitle">🎉¡Acompáñame a celebrar este dia tan especial para mi!🎉</p>
+<div class="wrapper">
+<div class="card">
 
-        <div class="photo-container">
-            <div class="photo-frame">
-                <img src="LIZETH.jpg" alt="Foto Cumpleañera">
-            </div>
-        </div>
+  <div class="subtitle">INVITACIÓN</div>
+  <div class="name">Lizeth</div>
+  <div class="theme">BLACK & WHITE</div>
 
-        <div class="ornament-divider">✨ • 🎂 • ✨</div>
+  <div class="divider"></div>
 
-        <div class="details">
-            <p><span class="details-icon">📅</span> <strong>Cuándo: </strong> Domingo, 1 de Febrero</p>
-            <p><span class="details-icon">⏰</span> <strong>Hora: </strong> 8:00 PM en adelante</p>
-            <p><span class="details-icon">📍</span> <strong>Dónde:</strong> Mi Casa jiji</p>
-            <p><span class="details-icon">🥂</span> <strong>Plan: </strong> Cena, brindis y mucha fiesta</p>
-        </div>
+  <!-- CUENTA REGRESIVA -->
+  <div class="countdown">
+    <div class="time-box"><span id="days">00</span><small>DÍAS</small></div>
+    <div class="time-box"><span id="hours">00</span><small>HORAS</small></div>
+    <div class="time-box"><span id="minutes">00</span><small>MIN</small></div>
+    <div class="time-box"><span id="seconds">00</span><small>SEG</small></div>
+  </div>
 
-        <p style="color: var(--primary-color); font-weight: 500;">Faltan muy pocos días:</p>
-        <div class="timer" id="timer">
-            </div>
+  <p class="text">
+    Acompáñame a celebrar una noche especial, elegante  
+    y llena de buenos momentos.
+  </p>
 
-        <a href="https://wa.me/51922313635?text=¡Hola!%20Confirmo%20mi%20asistencia%20para%20el%20cumple%20🎉%20¡Ahí%20nos%20vemos!" class="btn" target="_blank">✨Confirmar Asistencia✨</a>
+  <div class="section">
+    <i class="fa-regular fa-calendar"></i> 31 de enero <br>
+    <i class="fa-regular fa-clock"></i> 8:00 PM
+  </div>
+
+  <div class="section">
+    Dress Code<br><strong>Black & White</strong>
+  </div>
+
+  <div class="section">
+    Todos:<br>
+    <div class="gift-icons">
+      <i class="fa-solid fa-gift"></i>
+      <i class="fa-solid fa-gift"></i>
+      <i class="fa-solid fa-gift"></i>
     </div>
+  </div>
 
-    <script>
-        // --- CONFIGURACIÓN DE LA FECHA ---
-        // IMPORTANTE: CAMBIA EL AÑO SI ES NECESARIO (Formato: AÑO-MES-DÍA T HORA:MIN:SEG)
-        // He puesto el año 2024 como ejemplo.
-        const targetDate = new Date("2026-02-01T20:00:00").getTime();
+  <div class="section spotify">
+    <a target="_blank" href="https://open.spotify.com/playlist/3xoPJAr8ywc5LOnL9u7kcw?pt=f3c271d8e7250a9b104d34d592c978b6">
+      <i class="fa-brands fa-spotify"></i> AGREGA TU MÚSICA A LA FIESTA
+    </a>
+  </div>
 
-        // --- LÓGICA DEL RELOJ ---
-        const timerInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+  <div class="map">
+    <iframe src="https://www.google.com/maps?q=-11.84429849727309,-77.12382516956039&z=18&output=embed"></iframe>
+  </div>
 
-            if (distance < 0) {
-                clearInterval(timerInterval);
-                document.getElementById("timer").innerHTML = "<h2 style='color:var(--gold-color); text-shadow: 1px 1px 2px #000;'>✨ ¡Hoy es la fiesta! ✨</h2>";
-                return;
-            }
+  <a class="btn" target="_blank"
+     href="https://www.google.com/maps/dir/?api=1&destination=-11.84429849727309,-77.12382516956039">
+    VER RUTA
+  </a>
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            // Agregué segundos para que se vea más dinámico
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  <a class="btn" target="_blank"
+     href="https://wa.me/51922313635?text=Hola%20Lizeth,%20confirmo%20mi%20asistencia%20a%20tu%20cumplea%C3%B1os.%0AGracias%20por%20la%20invitaci%C3%B3n,%20nos%20vemos%20pronto%20%3C3">
+    CONFIRMAR
+  </a>
 
-            document.getElementById("timer").innerHTML = `
-                <div class="time-box"><span>${days}</span><small>Días</small></div>
-                <div class="time-box"><span>${hours}</span><small>Hs</small></div>
-                <div class="time-box"><span>${minutes}</span><small>Min</small></div>
-                <div class="time-box"><span>${seconds}</span><small>Seg</small></div>
-            `;
-        }, 1000);
+  <div class="footer">CELEBRA CON ESTILO</div>
 
-        // --- EFECTOS VISUALES DE FONDO ---
+</div>
+</div>
 
-        // 1. Elementos que flotan hacia ARRIBA (Emojis)
-        function createFloaters() {
-            const container = document.getElementById('floatingContainer');
-            const emojis = ['💖', '🌸', '✨', '🎂', '🥂']; 
-            for(let i=0; i<25; i++) {
-                const el = document.createElement('div');
-                el.classList.add('floater');
-                el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                el.style.left = Math.random() * 100 + "vw";
-                el.style.animationDuration = Math.random() * 15 + 10 + "s";
-                el.style.fontSize = Math.random() * 20 + 10 + "px";
-                container.appendChild(el);
-            }
-        }
+<script>
+/* FONDO */
+const bg=document.getElementById("bg");
 
-        // 2. Confeti que cae hacia ABAJO
-        function createFallingConfetti() {
-            const container = document.getElementById('fallingContainer');
-            const colors = ['#ff6b81', '#ff9a9e', '#fccb90', '#FFD700', '#ffffff'];
-            for(let i=0; i<40; i++) {
-                const el = document.createElement('div');
-                el.classList.add('confetti');
-                el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                el.style.left = Math.random() * 100 + "vw";
-                el.style.animationDuration = Math.random() * 5 + 5 + "s";
-                el.style.animationDelay = Math.random() * 5 + "s"; // Retraso para que no caigan todos de golpe
-                container.appendChild(el);
-            }
-        }
+for(let i=0;i<22;i++){
+  const h=document.createElement("div");
+  h.className="float heart";
+  h.textContent="🤍";
+  h.style.left=Math.random()*100+"%";
+  h.style.animationDuration=12+Math.random()*10+"s";
+  bg.appendChild(h);
+}
 
-        // Iniciar efectos
-        createFloaters();
-        createFallingConfetti();
-    </script>
+for(let i=0;i<6;i++){
+  const b=document.createElement("i");
+  b.className="fa-solid fa-butterfly float butterfly";
+  b.style.left=Math.random()*100+"%";
+  b.style.animationDuration=18+Math.random()*12+"s";
+  bg.appendChild(b);
+}
+
+window.addEventListener("scroll",()=>{
+  const y=window.scrollY;
+  document.querySelectorAll(".float").forEach(el=>{
+    el.style.transform=`translateY(${-y*0.12}px) rotate(${y*0.04}deg)`;
+  });
+});
+
+/* CUENTA REGRESIVA */
+const targetDate = new Date("2026-01-31T20:00:00-05:00");
+
+function updateCountdown(){
+  const now=new Date();
+  const diff=targetDate-now;
+
+  if(diff<=0) return;
+
+  const d=Math.floor(diff/(1000*60*60*24));
+  const h=Math.floor((diff/(1000*60*60))%24);
+  const m=Math.floor((diff/(1000*60))%60);
+  const s=Math.floor((diff/1000)%60);
+
+  days.textContent=d.toString().padStart(2,"0");
+  hours.textContent=h.toString().padStart(2,"0");
+  minutes.textContent=m.toString().padStart(2,"0");
+  seconds.textContent=s.toString().padStart(2,"0");
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
 </body>
-
 </html>
